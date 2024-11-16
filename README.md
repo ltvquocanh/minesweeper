@@ -36,3 +36,8 @@
    + Improve UI with the animations tooltips to improve user experience
    + Board interaction: Allow users to interact with the board
    + Test coverage: add the test library and write the test cases to cover the cores feature
+
+# Demo Minsesweeper
+![generate_board.png](Screenshots%2Fgenerate_board.png)
+![board_details.png](Screenshots%2Fboard_details.png)
+![View_all_boards.png](Screenshots%2FView_all_boards.png)
