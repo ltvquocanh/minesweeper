@@ -1,0 +1,45 @@
+<div class="row mt-5">
+  <div class="col">
+    <img src="https://ih1.redbubble.net/image.2892225190.6613/ur,mouse_pad_small_flatlay_prop,square,1000x1000.jpg" width="140px" class="rounded mx-auto d-block" alt="...">
+    <h1 class="display-6 text-center">Generate a Minesweeper Board</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 col-sm-12 d-grid mx-auto ">
+    <div id="form_errors">
+      <%=render partial:  "shared/form_errors", locals: { resource: @minesweeper_board }%>
+    </div>
+        <%= form_with  model: @minesweeper_board, local: true do |form| %>
+      <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: "form-control", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :board_name, "Board Name" %>
+        <%= form.text_field :board_name, class: "form-control", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :board_width, "Board Width" %>
+        <%= form.number_field :board_width, min: 1, class: "form-control", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :board_height, "Board Height" %>
+        <%= form.number_field :board_height, min: 1, class: "form-control", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :mines, "Number of Mines" %>
+        <%= form.number_field :mines, min: 1, class: "form-control", required: true %>
+      </div>
+
+      <%= form.submit "Generate Board", class: "btn btn-primary d-grid mx-auto" %>
+    <% end %>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+
+

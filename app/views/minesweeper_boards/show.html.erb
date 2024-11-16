@@ -1,0 +1,23 @@
+<div class="row mt-5">
+<div class="col-lg-6 col-md-6 col-sm-12">
+  <h1 class="display-4"><%= @minesweeper_board.board_name %> - Minesweeper Board</h1>
+  <p><strong>Created by:</strong> <%= @minesweeper_board.email %></p>
+  <p><strong>Dimensions:</strong> <%= @minesweeper_board.board_width %> x <%= @minesweeper_board.board_height %></p>
+  <p><strong>Number of Mines:</strong> <%= @minesweeper_board.mines %></p>
+  <%= link_to 'Back to List of Boards', minesweeper_boards_path, class: 'secondary' %>
+</div>
+<div class="col-12 mt-5 text-center">
+  <div class="board">
+    <% @board.each do |row| %>
+      <div class="boar-row">
+        <% row.each do |cell| %>
+        <span class="board-cell">
+          <%= cell == "Boom" ? "💣" : "" %>
+        </span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>

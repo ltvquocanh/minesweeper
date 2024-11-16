@@ -1,0 +1,36 @@
+<!-- app/views/home/index.html.erb -->
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+    <h1 class="display-1 text-center">Welcome to the Minesweeper Board Generator</h1>
+    <%= link_to "Generate New Board", new_minesweeper_board_path, class: " mt-5 btn btn-primary col-6 d-grid mx-auto" %>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <img src="https://ih1.redbubble.net/image.2892225190.6613/ur,mouse_pad_small_flatlay_prop,square,1000x1000.jpg" width="450px" class="rounded mx-auto d-block" alt="...">
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2 class="mt-2">Recent Boards</h2>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Board name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Created at</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @recent_boards.each_with_index do |board , t| %>
+        <tr>
+          <td><%=t +1 %></td>
+          <td><strong><%= link_to board.board_name, minesweeper_board_path(board) %></strong></td>
+          <td><%= board.email %></td>
+          <td><%= board.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to "View All Boards", minesweeper_boards_path, class: "btn btn-secondary" %>
+  </div>
+</div>
